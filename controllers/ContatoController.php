@@ -4,7 +4,7 @@ require_once "models/ContatoModel.php";
 class ContatoController {
     private $model;
 
-    public function __construct($db) {
+    public function __construct($db) { //chamado quando cria um obj da classe
         $this->model = new ContatoModel($db);
     }
 
