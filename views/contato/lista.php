@@ -31,8 +31,6 @@
   <?php endwhile; ?>
 </table>
 
-
-<!-- Link para criar novo contato -->
 <p><a href="index.php?controller=contato&action=criar">Criar novo contato</a></p>
 <script src="public/script.js"></script>
 
