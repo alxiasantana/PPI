@@ -1,16 +1,28 @@
 <?php
-require_once 'controllers/FilmeController.php';
+// conn com banco de dados
+require_once "config/db.php";
 
-$controller = new FilmeController();
+// pega controller e action da URL
+$controller = $_GET['controller'] ?? 'contato';
 $action = $_GET['action'] ?? 'listar';
 
-switch($action) {
-    case 'listar': $controller->listar(); break;
-    case 'listar_json': $controller->listar_json(); break;
-    case 'criar': $controller->criar(); break;
-    case 'salvar': $controller->salvar(); break;
-    case 'editar': $controller->editar($_GET['id']); break;
-    case 'atualizar': $controller->atualizar($_POST); break;
-    case 'deletar': $controller->deletar($_GET['id']); break;
-    default: $controller->listar();
+// Monta o caminho do controller
+$controllerFile = "controllers/" . ucfirst($controller) . "Controller.php";
+
+// vai ver se o controller existe
+if(file_exists($controllerFile)){
+    require_once $controllerFile;
+
+    $classe = ucfirst($controller) . "Controller";
+    $ctrl = new $classe($conn);
+
+    // faz a ação solicitada
+    if (method_exists($ctrl, $action)) {
+        $ctrl->$action();
+    } else {
+        echo "Ação '$action' não encontrada!";
+    }
+} else {
+    echo "Controller '$controller' não encontrado!";
 }
+?>

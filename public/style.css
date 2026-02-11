@@ -1,0 +1,57 @@
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f9f9f9;
+}
+
+h2 {
+  color: #333;
+}
+
+#tabela-contatos {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+
+#tabela-contatos th, #tabela-contatos td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+#tabela-contatos th {
+  background-color: #eee;
+}
+
+button, a {
+  background-color: #4a6c80;
+  color: white;
+  padding: 6px 12px;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover, a:hover {
+  background-color: #45a049;
+}
+
+#busca {
+  padding: 6px;
+  width: 250px;
+  margin-bottom: 10px;
+}
+
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  z-index: 1000;
+}
